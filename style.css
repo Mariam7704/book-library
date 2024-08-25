@@ -11,6 +11,7 @@
 
 body{
     padding: 30px;
+    background: #D8EFD3;
 
     display: flex;
     flex-direction: column;
@@ -22,18 +23,30 @@ body{
     font-size: 3.4rem;
     font-weight: 700;
     letter-spacing: 0.6rem;
+    background: #95D2B3;
+    color:#F1F8E8;
+    width: 1535px;
+    height: 120px;
+    padding:20px;
+    position:relative;
+    bottom: 30px;
 }
 
 .add>button{
     font-size: 1.3rem;
+    background: #95D2B3;
+    color:#F1F8E8;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     width:180px;
     height:50px;
-    border: 2px solid #373333;
+    border:0;
     border-radius: 8px;
     cursor: pointer;
 }
 /*************************dialog  section*********************************************/
 dialog[open]{
+    color: #F1F8E8;
+    background: #95D2B3;
     font-size: 1.7rem;
     width: 700px;
     height:700px;
@@ -63,7 +76,7 @@ form{
 }
 
 input{
-    border: 2px solid #373333;
+    border: 0;
     border-radius: 8px;
     height: 38px;
     width:300px;
@@ -88,14 +101,16 @@ dialog>.submit{
     font-size: 1.2rem;
     height: 36px;
     width: 120px;
-    border: 2px solid #373333;
+    background: #D8EFD3;
+    color:#95D2B3;
     border-radius: 8px;
     cursor: pointer;
 }
 
 .closeModal{
     font-size: 1.2rem;
-    background: #ffffff;
+    background: #95D2B3;
+    color:#F1F8E8;
     cursor:pointer;
 
     position: fixed;
@@ -105,9 +120,10 @@ dialog>.submit{
 
 /**************************************************************/
 .library{
-    background: url(./img/material-wood.svg);
+    background: url(./img/material-birchwood.svg);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding: 30px;
-    border: 5px solid #5c3615;
+    border: 8px solid #95D2B3;
     border-radius: 5px;
     overflow: hidden;
 
@@ -118,7 +134,7 @@ dialog>.submit{
 
 .library>div{
     background: #771616;
-    border: 3px solid #5c3615;
+    border: 8px solid #95D2B3;
     border-radius: 5px;
     padding: 28px;
     height:350px;
@@ -131,3 +147,15 @@ dialog>.submit{
     justify-content: space-between;
     align-items: center;
 }
+
+.library>div>button{
+    font-size: 1rem;
+    color:#ffffff;
+    background: #FF7878;
+    border: 0;
+    border-radius: 8px;
+    height:40px;
+    width:130px;
+    padding:3px;
+}
+
