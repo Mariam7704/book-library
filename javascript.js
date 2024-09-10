@@ -16,8 +16,8 @@ const bookColors=['#B4B4B8','#55AD9B','#F6F193','#9BB0C1','#D7C0AE',
     '#E6A4B4','#CDFCF6','#FF90BC','#8ACDD7','#537188'];
 
 
-
-function appendBook(newTitle,newAuthor,newPages,newRead){
+// shows the books that we added
+function appendBook(newBook){
     let newLibraryBook = document.createElement('div');
 
     let LibraryTitle = document.createElement('div');
@@ -26,22 +26,25 @@ function appendBook(newTitle,newAuthor,newPages,newRead){
     let LibraryPages = document.createElement('div');
     let LibraryRead=document.createElement('div');
 
+    //remove button
     let removeBook= document.createElement('button');
     removeBook.addEventListener('click',()=>{
         library.removeChild(newLibraryBook);
+        myLibrary.splice(myLibrary.indexOf(newBook),1);
     });
 
+    //book visuals
     let randomColor = bookColors[Math.floor(Math.random() * bookColors.length)];
     newLibraryBook.style.backgroundColor = randomColor;
 
 
-    LibraryTitle.textContent=newTitle;
+    LibraryTitle.textContent=newBook.title;
     by.textContent= 'By';
-    LibraryAuthor.textContent=newAuthor;
-    LibraryPages.textContent=newPages+' Pages';
+    LibraryAuthor.textContent=newBook.author;
+    LibraryPages.textContent=newBook.pages+' Pages';
     removeBook.textContent='Remove Book';
 
-    if(newRead){
+    if(newBook.read){
         LibraryRead.textContent='I have read the book';
         LibraryRead.style.color='#45FFCA';
     }else{
@@ -60,7 +63,7 @@ function appendBook(newTitle,newAuthor,newPages,newRead){
     library.appendChild(newLibraryBook);
 }
 
-
+//book constructor
 function Book(title,author,pages,read){
     this.title=title;
     this.author=author;
@@ -70,6 +73,7 @@ function Book(title,author,pages,read){
 
 const myLibrary= [];
 
+//event listeners
 add.addEventListener('click', () => {
     dialog.showModal();
 });
@@ -77,7 +81,6 @@ add.addEventListener('click', () => {
 closeModal.addEventListener('click', () => {
     dialog.close();
 });
-
 
 newBook.addEventListener('submit',(e)=>{
     e.preventDefault();
@@ -102,11 +105,11 @@ newBook.addEventListener('submit',(e)=>{
     dialog.close();
 });
 
+//creates an object, adds it to the array then shows it
 function addBookToLibrary(newTitle,newAuthor,newPages,newRead){
     let newBook = new Book(newTitle,newAuthor,newPages,newRead);
     myLibrary.push(newBook);
-    appendBook(newTitle,newAuthor,newPages,newRead);
+    appendBook(newBook);
 }
-
 
 
