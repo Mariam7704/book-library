@@ -30,7 +30,7 @@ function appendBook(newBook){
     let removeBook= document.createElement('button');
     removeBook.addEventListener('click',()=>{
         library.removeChild(newLibraryBook);
-        myLibrary.splice(myLibrary.indexOf(newBook),1);
+        myLibrary = myLibrary.filter(book => book.id !== newBook.id);
     });
 
     //book visuals
@@ -64,11 +64,39 @@ function appendBook(newBook){
 }
 
 //book constructor
-function Book(title,author,pages,read){
-    this.title=title;
-    this.author=author;
-    this.pages=pages;
-    this.read=read;
+class Book{
+    
+    #title;
+    #author;
+    #pages;
+    #read;
+    #id;
+    static lastId=0;
+    
+    constructor(title,author,pages,read){
+        this.#title=title;
+        this.#author=author;
+        this.#pages=pages;
+        this.#read=read;
+        this.#id=++Book.lastId;
+    }
+
+    get title(){
+        return this.#title;
+    }
+    get author(){
+        return this.#author
+    }
+    get pages(){
+        return this.#pages;
+    }
+    get read(){
+        return this.#read;
+    }
+    get id(){
+        return this.#id;
+    }
+
 }
 
 const myLibrary= [];
